@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AutoDependencyProperty.Fody/v14
+/AssemblyToProcess/bin
+/AssemblyToProcess/obj
+/AutoDependencyProperty.Fody/bin
+/AutoDependencyProperty.Fody/obj
+/AutoDependencyPropertyMarker/bin
+/AutoDependencyPropertyMarker/obj
+/packages
+/NuGetBuild
+/Tests/obj
+/Tests/bin
