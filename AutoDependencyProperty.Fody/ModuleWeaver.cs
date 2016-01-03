@@ -15,7 +15,7 @@ public class ModuleWeaver
         var markerDll = Check(() => ModuleDefinition.AssemblyReferences.SingleOrDefault(a => a.Name.ToLowerInvariant() == "AutoDependencyPropertyMarker".ToLowerInvariant()), "find AutoDependencyPropertyMarker reference");
         if (markerDll == null)
             return;
-        var windowsBase = CheckAssembly("WindowsBase");
+        var windowsBase = Check(() => ModuleDefinition.AssemblyResolver.Resolve(ModuleDefinition.AssemblyReferences.Single(a => a.Name.ToLowerInvariant() == "WindowsBase".ToLowerInvariant())).MainModule, "find 'WindowsBase reference'. Add a reference to any Type in this Assembly to your own code.");
         var mscorlib = CheckAssembly("mscorlib");
         var typeFromHandle = CheckImport(() => mscorlib.GetType("System.Type").Methods.Single(m => m.Name == "GetTypeFromHandle"), "GetTypeFromHandle");
         var depObject = Check(() => windowsBase.GetType("System.Windows.DependencyObject"), "load DependencyObject");
